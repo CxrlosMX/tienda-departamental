@@ -64,7 +64,7 @@ public class Usuario {
     private String generarCurp() {
         String cadena = "";
         cadena += RecorreString.recorre(apellido);
-        cadena += edad + "";
+        cadena += String.valueOf(edad);
         cadena += RecorreString.recorre(nombre);
         return cadena;
     }

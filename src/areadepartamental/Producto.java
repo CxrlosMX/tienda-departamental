@@ -17,11 +17,13 @@ package areadepartamental;
 public abstract class Producto {
 
     private String nombre;
-    private int precio;
+    private String marca;
+    private double precio;
     private boolean descuento;
 
-    public Producto(String nombre, int precio, boolean descuento) {
+    public Producto(String nombre, String marca, double precio, boolean descuento) {
         this.nombre = nombre;
+        this.marca=marca;
         this.precio = precio;
         this.descuento = descuento;
     }
@@ -34,11 +36,11 @@ public abstract class Producto {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -49,15 +51,14 @@ public abstract class Producto {
     public void setDescuento(boolean descuento) {
         this.descuento = descuento;
     }
-    //Método que da descuento 
-    public abstract  void aplicarDescuento();
-     
-    //Método para imprimir datos
 
+    //Método que da descuento 
+    public abstract void aplicarDescuento();
+
+    //Método para imprimir datos
     @Override
     public String toString() {
-        return   "Nombre: " + nombre + "Precio: " + precio + "Descuento: " + ((descuento)?"SI":"NO");
+        return "Nombre: " + nombre + "\nMarca: " + marca + "Precio: " + precio + "Descuento: " + ((descuento) ? "SI" : "NO");
     }
-    
-   
+
 }

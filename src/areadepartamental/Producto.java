@@ -23,9 +23,10 @@ public abstract class Producto {
 
     public Producto(String nombre, String marca, double precio, boolean descuento) {
         this.nombre = nombre;
-        this.marca=marca;
+        this.marca = marca;
         this.precio = precio;
         this.descuento = descuento;
+        aplicarDescuento();
     }
 
     public String getNombre() {

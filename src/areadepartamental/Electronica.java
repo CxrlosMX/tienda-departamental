@@ -23,7 +23,7 @@ public class Electronica extends Producto {
         super(nombre, marca, precio, descuento);
         this.modelo = modelo;
         this.agnoLanzamiento = agnoLanzamiento;
-        aplicarDescuento();
+     
     }
 
     @Override

@@ -57,7 +57,7 @@ public class Electrodomesticos extends Producto {
 
     @Override
     public String toString() {
-        return super.toString() + "\nCodigo: " + codigo + "\nConsumo Energia: " + consumoEnergia+"kWh";
+        return super.toString() + "\nCodigo: " + codigo + "\nConsumo Energia: " + consumoEnergia+"kWh"+((super.isDescuento())?"\n10% DESCUENTO":"");
     }
 
 }

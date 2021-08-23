@@ -6,6 +6,7 @@
 
 package pruebas;
 
+import areadepartamental.productos.AlmacenTienda;
 import usuariotienda.Usuario;
 
 /**
@@ -20,8 +21,12 @@ import usuariotienda.Usuario;
 public class Pruebas {
     public static void main(String[] args) {
         Usuario c=new Usuario("Luis","Rendon",20, 6912);
-        System.out.println(c);
-                
+       //System.out.println(c);
+                AlmacenTienda a=new AlmacenTienda();
+               //System.out.println(""+a.listaRopa());
+                //System.out.println(a.listaElectronica());
+                System.out.println(a.listaElectronica());
+                        
     }
 
 }

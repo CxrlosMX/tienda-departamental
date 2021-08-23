@@ -31,7 +31,7 @@ public class Electrodomesticos extends Producto {
     public void aplicarDescuento() {
         if (super.isDescuento()) {
             double n = super.getPrecio() * 0.10;
-            super.setPrecio(super.getPrecio() + n);
+            super.setPrecio(super.getPrecio() - n);
         }
     }
 

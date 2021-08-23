@@ -58,14 +58,18 @@ public class Usuario {
             }
         }
 
-        return cadena;
+        return cadena.toUpperCase();
     }
 
     private String generarCurp() {
+        String e = ""+edad;
         String cadena = "";
-        cadena += RecorreString.recorre(apellido);
-        cadena += String.valueOf(edad);
-        cadena += RecorreString.recorre(nombre);
+        cadena += RecorreString.recorre(apellido,3);
+
+        //cadena += RecorreString.recorre(e,1);
+        
+        cadena += RecorreString.recorre(nombre,3);
+        cadena+=e;
         return cadena;
     }
     //Métodos Get y Set
@@ -87,7 +91,7 @@ public class Usuario {
     }
 
     public String getCurp() {
-        return curp;
+        return curp.toUpperCase();
     }
 
     public void setCurp(String curp) {
@@ -136,7 +140,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCURP: " + curp + "\nEdad:" + edad + "\nNIP: " + nip + "\nSaldo: " + saldo + "\nDeuda: " + deuda + "\nNumero De Cuenta: " + numeroCuenta;
+        return "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCURP: " + curp.toUpperCase() + "\nEdad:" + edad + "\nNIP: " + nip + "\nSaldo: " + saldo + "\nDeuda: " + deuda + "\nNumero De Cuenta: " + numeroCuenta;
     }
 
 }

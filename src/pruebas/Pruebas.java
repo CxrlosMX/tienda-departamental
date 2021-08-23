@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package superFunciones;
 
+package pruebas;
 
+import usuariotienda.Usuario;
 
 /**
  *
@@ -14,17 +15,13 @@ package superFunciones;
  * @Phone: 953-212-97-27
  * @Email: LuisCRendon131@gmail.com
  * @Date: 21/08/2021
- *
+ * 
  */
-public class RecorreString  {
-
-  
-    public static String recorre(String cadena,int n) {
-        String c = "";
-        for (int i = 0; i < n; i++) {
-            c += cadena.charAt(i);
-        }
-        return c;
+public class Pruebas {
+    public static void main(String[] args) {
+        Usuario c=new Usuario("Luis","Rendon", 20, 6912);
+        System.out.println(c);
+                
     }
 
 }

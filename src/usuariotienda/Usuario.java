@@ -46,16 +46,16 @@ public class Usuario {
         char a;
         int n;
         for (int i = 0; i < 6; i++) {
-            n = GenerarNumeroAleatorio.generarNumeroAleatorio(2, 1);
-            if (n == 1) {
+           // n = GenerarNumeroAleatorio.generarNumeroAleatorio(2, 1);
+            /*if (n == 1) {
                 n = GenerarNumeroAleatorio.generarNumeroAleatorio(90, 65);
                 a = (char) n;
                 cadena += a;
-            } else {
+            }*/// else {
                 n = GenerarNumeroAleatorio.generarNumeroAleatorio(57, 48);
                 a = (char) n;
                 cadena += a;
-            }
+            //}
         }
 
         return cadena.toUpperCase();
@@ -140,7 +140,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCURP: " + curp.toUpperCase() + "\nEdad:" + edad + "\nNIP: " + nip + "\nSaldo: " + saldo + "\nDeuda: " + deuda + "\nNumero De Cuenta: " + numeroCuenta;
+        return "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCURP: " + curp.toUpperCase() + "\nEdad: " + edad + "\nNIP: " + nip +"\nNumero De Cuenta: " + numeroCuenta;
     }
-
+    //+ "\nSaldo: " + saldo + "\nDeuda: " + deuda + 
 }

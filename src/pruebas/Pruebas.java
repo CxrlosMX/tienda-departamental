@@ -19,7 +19,7 @@ import usuariotienda.Usuario;
  */
 public class Pruebas {
     public static void main(String[] args) {
-        Usuario c=new Usuario("Luis","Rendon", 20, 6912);
+        Usuario c=new Usuario("Luis","Rendon",20, 6912);
         System.out.println(c);
                 
     }

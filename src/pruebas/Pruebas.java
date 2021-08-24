@@ -7,6 +7,7 @@
 package pruebas;
 
 import areadepartamental.productos.AlmacenTienda;
+import gestiontienda.ControlTienda;
 import usuariotienda.Usuario;
 
 /**
@@ -20,12 +21,13 @@ import usuariotienda.Usuario;
  */
 public class Pruebas {
     public static void main(String[] args) {
-        Usuario c=new Usuario("Luis","Rendon",20, 6912,'H');
-       //System.out.println(c);
-                AlmacenTienda a=new AlmacenTienda();
+        ControlTienda control=new ControlTienda();
+        Usuario c=control.agregarValores();
+       System.out.println(c);
+              //  AlmacenTienda a=new AlmacenTienda();
                //System.out.println(""+a.listaRopa());
                 //System.out.println(a.listaElectronica());
-                System.out.println(a.listaElectronica());
+               // System.out.println(a.listaElectronica());
                         
     }
 

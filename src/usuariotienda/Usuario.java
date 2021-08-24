@@ -6,6 +6,7 @@
 package usuariotienda;
 
 import metodos.GenerarNumeroAleatorio;
+import metodos.ListaNips;
 import superFunciones.RecorreString;
 
 /**
@@ -23,29 +24,54 @@ public class Usuario {
     private String apellido;
     private String curp;
     private int edad;
-    private int nip;
+    private String nip;
     private double saldo;
     private double deuda;
     private char sexo;
     private String numeroCuenta;
 
-    public Usuario(String nombre, String apellido, int edad, int nip, char sexo) {
+    public Usuario(String nombre, String apellido, int edad, String nip, char sexo) {
         this.nombre = nombre;
         this.apellido = apellido;
         //Curp se genera automaticamente
         this.curp = generarCurp();
         this.edad = edad;
         //El Nip debe ser de 4 digitos
-        verificarNip(nip);
+       //verificarNip(nip);
+        this.nip=nip;
         this.saldo = 0;
         this.deuda = 0;
         this.sexo = sexo;
         //El numero de cuenta lo genera el banco
         this.numeroCuenta = generarNumeroCuenta();
     }
-    
-    private void verificarNip(int nip) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    private void verificarNip(String nip) {
+        
+        if(nip.length()==4){
+        
+        }
+        else {
+        
+        }
+        /*
+        boolean isIgual = false;
+        for (int i = 0; i < ListaNips.listaNips.size() && !isIgual; i++) {
+            if (ListaNips.listaNips.get(i) == nip) {
+                isIgual = true;
+            }
+        }
+
+        if (!isIgual) {
+            ListaNips.listaNips.add(nip);
+            this.nip = nip;
+        } else {
+            do {
+                
+                
+            } while (isIgual);
+        }*/
+
     }
 
     private String generarNumeroCuenta() {
@@ -112,11 +138,11 @@ public class Usuario {
         this.edad = edad;
     }
 
-    public int getNip() {
+    public String getNip() {
         return nip;
     }
 
-    public void setNip(int nip) {
+    public void setNip(String nip) {
         this.nip = nip;
     }
 

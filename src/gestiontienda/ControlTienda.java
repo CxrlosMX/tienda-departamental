@@ -8,6 +8,7 @@ package gestiontienda;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import metodos.DefineSexo;
+import metodos.VerificaNip;
 import usuariotienda.Usuario;
 
 /**
@@ -35,7 +36,8 @@ public class ControlTienda {
         String apellido = JOptionPane.showInputDialog(null, "Introdusca su Apellido", "Solicitando Tarjeta", 1);
         int edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introdusca su Edad", "Solicitando Tarjeta", 1));
         char sexo = DefineSexo.defineSexo();
-        int nip = Integer.parseInt(JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1));
+        String nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
+        nip=VerificaNip.verificarNip(nip);
         return new Usuario(nombre, apellido, edad, nip, sexo);
     }
 

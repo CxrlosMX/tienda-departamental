@@ -26,19 +26,26 @@ public class Usuario {
     private int nip;
     private double saldo;
     private double deuda;
+    private char sexo;
     private String numeroCuenta;
 
-    public Usuario(String nombre, String apellido, int edad, int nip) {
+    public Usuario(String nombre, String apellido, int edad, int nip, char sexo) {
         this.nombre = nombre;
         this.apellido = apellido;
         //Curp se genera automaticamente
         this.curp = generarCurp();
         this.edad = edad;
-        this.nip = nip;
+        //El Nip debe ser de 4 digitos
+        verificarNip(nip);
         this.saldo = 0;
         this.deuda = 0;
+        this.sexo = sexo;
         //El numero de cuenta lo genera el banco
         this.numeroCuenta = generarNumeroCuenta();
+    }
+    
+    private void verificarNip(int nip) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private String generarNumeroCuenta() {
@@ -46,15 +53,15 @@ public class Usuario {
         char a;
         int n;
         for (int i = 0; i < 6; i++) {
-           // n = GenerarNumeroAleatorio.generarNumeroAleatorio(2, 1);
+            // n = GenerarNumeroAleatorio.generarNumeroAleatorio(2, 1);
             /*if (n == 1) {
-                n = GenerarNumeroAleatorio.generarNumeroAleatorio(90, 65);
-                a = (char) n;
-                cadena += a;
-            }*/// else {
-                n = GenerarNumeroAleatorio.generarNumeroAleatorio(57, 48);
-                a = (char) n;
-                cadena += a;
+             n = GenerarNumeroAleatorio.generarNumeroAleatorio(90, 65);
+             a = (char) n;
+             cadena += a;
+             }*/// else {
+            n = GenerarNumeroAleatorio.generarNumeroAleatorio(57, 48);
+            a = (char) n;
+            cadena += a;
             //}
         }
 
@@ -62,14 +69,13 @@ public class Usuario {
     }
 
     private String generarCurp() {
-        String e = ""+edad;
+        String e = "" + edad;
         String cadena = "";
-        cadena += RecorreString.recorre(apellido,3);
+        cadena += RecorreString.recorre(apellido, 3);
 
         //cadena += RecorreString.recorre(e,1);
-        
-        cadena += RecorreString.recorre(nombre,3);
-        cadena+=e;
+        cadena += RecorreString.recorre(nombre, 3);
+        cadena += e;
         return cadena;
     }
     //Métodos Get y Set
@@ -140,7 +146,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCURP: " + curp.toUpperCase() + "\nEdad: " + edad + "\nNIP: " + nip +"\nNumero De Cuenta: " + numeroCuenta;
+        return "\nNombre: " + nombre + "\nApellido: " + apellido + "\nSexo: " + sexo + "\nCURP: " + curp.toUpperCase() + "\nEdad: " + edad + "\nNIP: " + nip + "\nNumero De Cuenta: " + numeroCuenta;
     }
     //+ "\nSaldo: " + saldo + "\nDeuda: " + deuda + 
+
 }

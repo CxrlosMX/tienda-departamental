@@ -20,7 +20,7 @@ import usuariotienda.Usuario;
  */
 public class Pruebas {
     public static void main(String[] args) {
-        Usuario c=new Usuario("Luis","Rendon",20, 6912);
+        Usuario c=new Usuario("Luis","Rendon",20, 6912,'H');
        //System.out.println(c);
                 AlmacenTienda a=new AlmacenTienda();
                //System.out.println(""+a.listaRopa());

@@ -13,14 +13,16 @@ import javax.swing.JOptionPane;
  */
 public interface VerificaNip {
 
-    static String verificarNip(String nip) {
+    static String verificarNip() {
+        String nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
         boolean continuar = false;
         do {
             if (nip.length() == 4) {
                 continuar = true;
             } else {
+                nip=null;
                 JOptionPane.showMessageDialog(null, "Su NIP debe ser de 4 Digitos", "NIP no valido", 2);
-                nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP","Solicitando Tarjeta",1);
+                nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
             }
 
         } while (!continuar);

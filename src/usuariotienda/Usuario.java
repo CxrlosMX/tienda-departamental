@@ -5,6 +5,7 @@
  */
 package usuariotienda;
 
+import javax.swing.JOptionPane;
 import metodos.GenerarNumeroAleatorio;
 import metodos.ListaNips;
 import superFunciones.RecorreString;
@@ -37,8 +38,8 @@ public class Usuario {
         this.curp = generarCurp();
         this.edad = edad;
         //El Nip debe ser de 4 digitos
-       //verificarNip(nip);
-        this.nip=nip;
+        verificarNip(nip);
+        //this.nip = nip;
         this.saldo = 0;
         this.deuda = 0;
         this.sexo = sexo;
@@ -47,17 +48,12 @@ public class Usuario {
     }
 
     private void verificarNip(String nip) {
-        
-        if(nip.length()==4){
-        
-        }
-        else {
-        
-        }
-        /*
+        //Verificamos que la cadena sea mayor de 4
+       
+
         boolean isIgual = false;
         for (int i = 0; i < ListaNips.listaNips.size() && !isIgual; i++) {
-            if (ListaNips.listaNips.get(i) == nip) {
+            if (ListaNips.listaNips.get(i).equalsIgnoreCase(nip)) {
                 isIgual = true;
             }
         }
@@ -66,11 +62,45 @@ public class Usuario {
             ListaNips.listaNips.add(nip);
             this.nip = nip;
         } else {
+            isIgual = false;
             do {
-                
-                
-            } while (isIgual);
-        }*/
+                JOptionPane.showMessageDialog(null, "NIP en uso\nIntrodusca otro", "Error de NIP", 2);
+                nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
+                if (!this.verificaNip(nip)) {
+                    isIgual = true;
+                    this.nip = nip;
+                    ListaNips.listaNips.add(nip);
+                }
+                /*if (isIgual) {
+                 JOptionPane.showMessageDialog(null, "NIP en uso\nIntrodusca otro", "Error de NIP", 2);
+                 nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
+                 for (int i = 0; i < ListaNips.listaNips.size() && !isIgual; i++) {
+                 if (ListaNips.listaNips.get(i).equalsIgnoreCase(nip)) {
+                 isIgual = true;
+                 }
+                 if (i == (ListaNips.listaNips.size()-1) && isIgual) {
+                 isIgual = false;
+                 this.nip = nip;
+                 ListaNips.listaNips.add(nip);
+                 break;
+                 }
+                 }
+                 }*/
+            } while (!isIgual);
+
+        }
+
+    }
+
+    //Recorre lista
+    private boolean verificaNip(String nip) {
+
+        for (int i = 0; i < ListaNips.listaNips.size(); i++) {
+            if (ListaNips.listaNips.get(i).equalsIgnoreCase(nip)) {
+                return true;
+            }
+        }
+        return false;
 
     }
 

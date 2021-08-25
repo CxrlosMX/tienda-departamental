@@ -12,5 +12,5 @@ import java.util.ArrayList;
  * @author CxrlosMX
  */
 public interface ListaNips {
-    static ArrayList<Integer> listaNips=new ArrayList<Integer>();
+    static ArrayList<String> listaNips=new ArrayList<>();
 }

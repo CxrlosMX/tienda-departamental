@@ -36,9 +36,27 @@ public class ControlTienda {
         String apellido = JOptionPane.showInputDialog(null, "Introdusca su Apellido", "Solicitando Tarjeta", 1);
         int edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introdusca su Edad", "Solicitando Tarjeta", 1));
         char sexo = DefineSexo.defineSexo();
-        String nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
-        nip=VerificaNip.verificarNip(nip);
+         String nip = VerificaNip.verificarNip();
+       /* String nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
+        if (!verificarNip(nip)) {
+            boolean continuar = false;
+            do {
+                JOptionPane.showMessageDialog(null, "Su NIP debe ser de 4 Digitos", "NIP no valido", 2);
+                nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
+                if (verificarNip(nip)) {
+                    continuar = true;
+                }
+            } while (!continuar);
+        }*/
         return new Usuario(nombre, apellido, edad, nip, sexo);
+    }
+
+    //Método para verificar el NIP
+    public boolean verificarNip(String nip) {
+        if (nip.length() == 4) {
+            return true;
+        }
+        return false;
     }
 
     //Método para verificar que tengamos usuarios dentro de nuestra tienda

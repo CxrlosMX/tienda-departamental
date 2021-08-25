@@ -6,6 +6,7 @@
 package gestiontienda;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import metodos.DefineSexo;
 import metodos.VerificaNip;
@@ -36,19 +37,36 @@ public class ControlTienda {
         String apellido = JOptionPane.showInputDialog(null, "Introdusca su Apellido", "Solicitando Tarjeta", 1);
         int edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introdusca su Edad", "Solicitando Tarjeta", 1));
         char sexo = DefineSexo.defineSexo();
-         String nip = VerificaNip.verificarNip();
-       /* String nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
-        if (!verificarNip(nip)) {
-            boolean continuar = false;
-            do {
-                JOptionPane.showMessageDialog(null, "Su NIP debe ser de 4 Digitos", "NIP no valido", 2);
-                nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
-                if (verificarNip(nip)) {
-                    continuar = true;
-                }
-            } while (!continuar);
-        }*/
+        String nip = VerificaNip.verificarNip();
+        /* String nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
+         if (!verificarNip(nip)) {
+         boolean continuar = false;
+         do {
+         JOptionPane.showMessageDialog(null, "Su NIP debe ser de 4 Digitos", "NIP no valido", 2);
+         nip = JOptionPane.showInputDialog(null, "El Siguiente campo es muy importante\nIntrodusca su NIP", "Solicitando Tarjeta", 1);
+         if (verificarNip(nip)) {
+         continuar = true;
+         }
+         } while (!continuar);
+         }*/
         return new Usuario(nombre, apellido, edad, nip, sexo);
+    }
+
+    //Método para agregar un Usuario al banco
+    public void addUsuarioBanco(Usuario u) {
+        listaUsuarios.add(u);
+        JOptionPane.showMessageDialog(null, "Bienvenido " + u.getNombre() + " usted ya cuenta con su tarjeta Coppel", "Bienvenido", -1, new ImageIcon("recursos/tarjeta.png"));
+        this.contador++;
+    }
+
+    //Método para inicar Sesión
+    public Usuario iniciarSesion(String nip) {
+        for (int i = 0; i < listaUsuarios.size(); i++) {
+            if (listaUsuarios.get(i).getNip().equalsIgnoreCase(nip)) {
+                return listaUsuarios.get(i);
+            }
+        }
+        return null;
     }
 
     //Método para verificar el NIP

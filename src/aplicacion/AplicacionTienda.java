@@ -43,6 +43,20 @@ public class AplicacionTienda {
                         if (!control.listaVacia()) {
                             nip = JOptionPane.showInputDialog(null, "Introdusca su NIP", "Iniciando Sesión", 1);
                             if (control.iniciarSesion(nip) != null) {
+                                usuario = control.iniciarSesion(nip);
+                                JOptionPane.showMessageDialog(null, "BIENVENIDO " + usuario.getNombre().toUpperCase(), "BIENVENIDA", -1);
+                                do {
+                                    try {
+                                        op2 = Integer.parseInt(JOptionPane.showInputDialog(null, "MI CUENTA\n"
+                                                + "1.-Bancoppel\n"
+                                                + "2.-Realizar Compra\n"
+                                                + "3.-Salir al menu principal", "Mi Cuenta Coppel", 3));
+
+                                    } catch (NumberFormatException e) {
+                                        JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
+                                    }
+
+                                } while (op2 != 3);
 
                             } else {
                                 JOptionPane.showMessageDialog(null, "Ningun NIP conside con la busqueda\nIntente más tarde", "Busqueda Erronea", 0);
@@ -72,7 +86,7 @@ public class AplicacionTienda {
                     }
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showConfirmDialog(null, e.getMessage(), "Error", 0);
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
             }
         } while (op != 4);
 

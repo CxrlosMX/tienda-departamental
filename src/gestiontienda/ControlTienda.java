@@ -69,7 +69,23 @@ public class ControlTienda {
         return null;
     }
 
-    
+    //Método para buscar a usuario por numero de cuenta
+    public Usuario obtenerUsuario(Usuario u, String numCuenta) {
+        if (u.getNumeroCuenta().equalsIgnoreCase(numCuenta)) {
+            JOptionPane.showMessageDialog(null, "No es posible realizar esta transferencia", "Valores Incorrectos", 0);
+            return null;
+        } else {
+            for (Usuario i : listaUsuarios) {
+                if (i.getNumeroCuenta().equalsIgnoreCase(numCuenta)) {
+                    return i;
+                }
+            }
+
+        }
+        JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese numero de cuenta\nIntente más tarde", "Usuario no encontrado", 1);
+        return null;
+    }
+
     //Método para verificar el NIP
     public boolean verificarNip(String nip) {
         if (nip.length() == 4) {
@@ -77,8 +93,9 @@ public class ControlTienda {
         }
         return false;
     }
+
     //Método para mostrar todos los usuarios de la tienda
-    public void usuarios(){
+    public void usuarios() {
         System.out.println(this.listaUsuarios);
     }
 

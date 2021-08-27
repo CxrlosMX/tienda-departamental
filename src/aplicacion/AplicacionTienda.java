@@ -26,7 +26,7 @@ public class AplicacionTienda {
     public static void main(String[] args) {
         int op = 0, op2 = 0, op3 = 0;
         ControlTienda control = new ControlTienda();
-        Banco banco=new Banco();
+        Banco banco = new Banco();
         AlmacenTienda almacen = new AlmacenTienda();
         String nip;
         Usuario usuario;
@@ -59,7 +59,9 @@ public class AplicacionTienda {
                                                     try {
                                                         op3 = Integer.parseInt(JOptionPane.showInputDialog(null, "BANCOPPEL\n"
                                                                 + "1.-Mi cuenta Coppel\n"
-                                                                + "2.-Realizar Deposito"
+                                                                + "2.-Realizar Deposito\n"
+                                                                + "3.-Realizar Retiro\n"
+                                                                + "4.-Realizar Transferencia"
                                                                 + "", "BANCO", 3));
                                                         switch (op3) {
                                                             case 1: {
@@ -68,6 +70,19 @@ public class AplicacionTienda {
                                                             }
                                                             case 2: {
                                                                 banco.realizarDeposito(usuario);
+                                                                break;
+                                                            }
+                                                            case 3: {
+                                                                banco.realizarRetiro(usuario);
+                                                                break;
+                                                            }
+                                                            case 4: {
+                                                                String numCuenta=JOptionPane.showInputDialog(null, "Introduce el numero de cuenta de la persona", "Introduciendo Numero de Cuenta", 1);
+                                                                Usuario cuenta=control.obtenerUsuario(usuario, numCuenta);
+                                                                if(cuenta!=null){
+                                                                banco.realizarTransferencia(usuario, cuenta);
+                                                                }
+                                                               
                                                                 break;
                                                             }
 

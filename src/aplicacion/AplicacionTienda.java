@@ -23,7 +23,7 @@ import usuariotienda.Usuario;
 public class AplicacionTienda {
 
     public static void main(String[] args) {
-        int op = 0, op2 = 0;
+        int op = 0, op2 = 0, op3 = 0;
         ControlTienda control = new ControlTienda();
         AlmacenTienda almacen = new AlmacenTienda();
         String nip;
@@ -51,7 +51,39 @@ public class AplicacionTienda {
                                                 + "1.-Bancoppel\n"
                                                 + "2.-Realizar Compra\n"
                                                 + "3.-Salir al menu principal", "Mi Cuenta Coppel", 3));
+                                        switch (op2) {
+                                            case 1: { //Banco
+                                                do {
+                                                    try {
+                                                        op3 = Integer.parseInt(JOptionPane.showInputDialog(null, "BANCOPPEL\n"
+                                                                + "1.-Mi cuenta Coppel\n"
+                                                                + "", "BANCO", 3));
+                                                        switch (op3) {
+                                                            case 1: {
+                                                                JOptionPane.showMessageDialog(null, usuario, "Mis datos",1);
+                                                                break;
+                                                            }
 
+                                                        }
+                                                    } catch (NumberFormatException e) {
+                                                        JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
+                                                    }
+                                                } while (op3 != 3);
+                                                break;
+                                            }
+                                            case 2: { //Compras
+
+                                                break;
+                                            }
+                                            case 3: {
+                                                JOptionPane.showMessageDialog(null, "Saliendo al ménu principal", "Saliendo", 1);
+                                                break;
+                                            }
+                                            default: {
+                                                JOptionPane.showMessageDialog(null, "Introduce una opción valida", "Error de Opción", 2);
+                                                break;
+                                            }
+                                        }
                                     } catch (NumberFormatException e) {
                                         JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
                                     }
@@ -91,6 +123,9 @@ public class AplicacionTienda {
         } while (op != 4);
 
     }
+    /*static int seleccionarOpcion(){
+     int x=JOptionPane.showOptionDialog(null, "Retiro","Realizando Retiro", i, i1, null, os, null)
+     }*/
 
 }
 /*

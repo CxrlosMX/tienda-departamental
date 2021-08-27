@@ -202,7 +202,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "\nNombre: " + nombre + "\nApellido: " + apellido + "\nSexo: " + sexo + "\nCURP: " + curp.toUpperCase() + "\nEdad: " + edad + "\nNIP: " + nip + "\nNumero De Cuenta: " + numeroCuenta;
+        return "\nNombre: " + nombre + "\nApellido: " + apellido + "\nSexo: " + sexo + "\nCURP: " + curp.toUpperCase() + "\nEdad: " + edad + "\nNIP: " + nip + "\nNumero De Cuenta: " + numeroCuenta+"\nSaldo: "+saldo+"$";
     }
     //+ "\nSaldo: " + saldo + "\nDeuda: " + deuda + 
 

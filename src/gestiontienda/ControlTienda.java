@@ -69,12 +69,17 @@ public class ControlTienda {
         return null;
     }
 
+    
     //Método para verificar el NIP
     public boolean verificarNip(String nip) {
         if (nip.length() == 4) {
             return true;
         }
         return false;
+    }
+    //Método para mostrar todos los usuarios de la tienda
+    public void usuarios(){
+        System.out.println(this.listaUsuarios);
     }
 
     //Método para verificar que tengamos usuarios dentro de nuestra tienda

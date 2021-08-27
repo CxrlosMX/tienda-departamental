@@ -6,6 +6,7 @@
 package pruebas;
 
 import areadepartamental.productos.AlmacenTienda;
+import banco.Banco;
 import gestiontienda.ControlTienda;
 import usuariotienda.Usuario;
 
@@ -22,17 +23,28 @@ public class Pruebas {
 
     public static void main(String[] args) {
         ControlTienda control = new ControlTienda();
-        Usuario c = control.agregarValores();
-        System.out.println(c);
-        Usuario a = control.agregarValores();
-        System.out.println(a);
-        Usuario b = control.agregarValores();
-        System.out.println(b);
-        //  AlmacenTienda a=new AlmacenTienda();
-        //System.out.println(""+a.listaRopa());
-        //System.out.println(a.listaElectronica());
-        // System.out.println(a.listaElectronica());
-
+        Banco banco=new Banco();
+        Usuario c = new Usuario("Luis", "Rendon", 20, "1234", 'H');
+        control.addUsuarioBanco(c);
+        //System.out.println(c);
+        Usuario a = new Usuario("Sayuri", "Aparicio", 18, "2233", 'M');
+        control.addUsuarioBanco(a);
+         System.out.println(a);
+         //control.realizarDeposito(a);
+         banco.realizarDeposito(a);
+         System.out.println(a);
+         // control.realizarDeposito(a);
+         banco.realizarDeposito(a);
+         System.out.println(a);
+        control.usuarios();
+         /* Usuario b = control.agregarValores();
+         System.out.println(b);
+         //  AlmacenTienda a=new AlmacenTienda();
+         //System.out.println(""+a.listaRopa());
+         //System.out.println(a.listaElectronica());
+         // System.out.println(a.listaElectronica());
+         */
+        
     }
 
 }

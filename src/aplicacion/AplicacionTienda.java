@@ -6,6 +6,7 @@
 package aplicacion;
 
 import areadepartamental.productos.AlmacenTienda;
+import banco.Banco;
 import gestiontienda.ControlTienda;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -25,6 +26,7 @@ public class AplicacionTienda {
     public static void main(String[] args) {
         int op = 0, op2 = 0, op3 = 0;
         ControlTienda control = new ControlTienda();
+        Banco banco=new Banco();
         AlmacenTienda almacen = new AlmacenTienda();
         String nip;
         Usuario usuario;
@@ -57,10 +59,15 @@ public class AplicacionTienda {
                                                     try {
                                                         op3 = Integer.parseInt(JOptionPane.showInputDialog(null, "BANCOPPEL\n"
                                                                 + "1.-Mi cuenta Coppel\n"
+                                                                + "2.-Realizar Deposito"
                                                                 + "", "BANCO", 3));
                                                         switch (op3) {
                                                             case 1: {
-                                                                JOptionPane.showMessageDialog(null, usuario, "Mis datos",1);
+                                                                JOptionPane.showMessageDialog(null, usuario, "Mis datos", 1);
+                                                                break;
+                                                            }
+                                                            case 2: {
+                                                                banco.realizarDeposito(usuario);
                                                                 break;
                                                             }
 

@@ -63,7 +63,7 @@ public abstract class Producto {
     //Método para imprimir datos
     @Override
     public String toString() {
-        return "ID: "+idProducto+"\nNombre: " + nombre + "\nMarca: " + marca + "\nPrecio: " + precio + "$" + "\nDescuento: " + ((descuento) ? "SI" : "NO");
+        return "ID DEL PRODUCTO: "+idProducto+"\nNombre: " + nombre + "\nMarca: " + marca + "\nPrecio: " + precio + "$" + "\nDescuento: " + ((descuento) ? "SI" : "NO");
     }
 
 }

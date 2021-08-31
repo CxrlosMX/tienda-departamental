@@ -135,12 +135,37 @@ public class AplicacionTienda {
                     }
                     case 3: {
                         do {
-                            op4=Integer.parseInt(JOptionPane.showInputDialog(null,"TIENDA\n"
+                            op4 = Integer.parseInt(JOptionPane.showInputDialog(null, "TIENDA\n"
                                     + "1.-Área de Prendas\n"
-                                    + "2.-Área de Electrodomesticos\n"
-                                    + "3.-Área Electronica\n"
-                                    + "Elija una área por favor","Secciones Coppel", op));
-
+                                    + "2.-Área de Electronica\n"
+                                    + "3.-Área de Electrodomesticos\n"
+                                    + "4.-Salir al menu principal\n"
+                                    + "Elija una área por favor", "Secciones Coppel", -1));
+                            switch (op4) {
+                                case 1: {
+                                    JOptionPane.showMessageDialog(null, "ÁREA DE PRENDAS", "Prendas", -1, new ImageIcon("recursos/ropa.jpg"));
+                                    JOptionPane.showMessageDialog(null, almacen.productosTienda(1), "PRENDAS", 1);
+                                    break;
+                                }
+                                case 2: {
+                                    JOptionPane.showMessageDialog(null, "ÁREA DE ELECTRONICA", "Electronica", -1, new ImageIcon("electro.jpg"));
+                                    JOptionPane.showMessageDialog(null, almacen.productosTienda(2), "ELECTRONICA", 1);
+                                    break;
+                                }
+                                case 3: {
+                                    JOptionPane.showMessageDialog(null, "ÁREA DE ELECTRODOMESTICOS", "Electrodomestico", -1, new ImageIcon("e.jpg"));
+                                    JOptionPane.showMessageDialog(null, almacen.productosTienda(3), "ELECTRODOMESTICOS", 1);
+                                    break;
+                                }
+                                case 4: {
+                                    JOptionPane.showMessageDialog(null, "Saliendo al ménu principal", "Saliendo", 1);
+                                    break;
+                                }
+                                default: {
+                                    JOptionPane.showMessageDialog(null, "Introduce una opción valida", "Error de Opción", 2);
+                                    break;
+                                }
+                            }
                             try {
 
                             } catch (NumberFormatException e) {

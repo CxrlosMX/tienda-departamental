@@ -16,6 +16,8 @@ package areadepartamental;
  */
 public abstract class Producto {
 
+    private static int idSiguiente = 1;
+    private int idProducto;
     private String nombre;
     private String marca;
     private double precio;
@@ -26,6 +28,8 @@ public abstract class Producto {
         this.marca = marca;
         this.precio = precio;
         this.descuento = descuento;
+        this.idProducto = idSiguiente;
+        idSiguiente++;
         aplicarDescuento();
     }
 
@@ -59,7 +63,7 @@ public abstract class Producto {
     //Método para imprimir datos
     @Override
     public String toString() {
-        return "Nombre: " + nombre + "\nMarca: " + marca + "\nPrecio: " + precio+"$" + "\nDescuento: " + ((descuento) ? "SI" : "NO");
+        return "ID: "+idProducto+"\nNombre: " + nombre + "\nMarca: " + marca + "\nPrecio: " + precio + "$" + "\nDescuento: " + ((descuento) ? "SI" : "NO");
     }
 
 }

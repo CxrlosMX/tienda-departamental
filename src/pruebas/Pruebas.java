@@ -23,7 +23,10 @@ public class Pruebas {
 
     public static void main(String[] args) {
         ControlTienda control = new ControlTienda();
-        Banco banco = new Banco();
+        AlmacenTienda almacen=new AlmacenTienda();
+      
+        System.out.println( almacen.productosTienda(2));
+        /*Banco banco = new Banco();
         Usuario c = new Usuario("Luis", "Rendon", 20, "1234", 'H');
         control.addUsuarioBanco(c);
         //System.out.println(c);

@@ -82,7 +82,7 @@ public class ControlTienda {
             }
 
         }
-        JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese numero de cuenta\nIntente más tarde", "Usuario no encontrado", 1);
+        JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese numero de cuenta\nIntente más tarde", "Usuario no encontrado", 0);
         return null;
     }
 

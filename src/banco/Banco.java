@@ -34,7 +34,7 @@ public class Banco {
             boolean correcto = false;
             do {
                 try {
-                    
+
                     cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduca la cantidad del deposito", "Introduciendo cantidad", 1));
                     if (cantidad > 0) {
                         correcto = true;
@@ -48,7 +48,7 @@ public class Banco {
         }
         JOptionPane.showMessageDialog(null, "Deposito realizado con exito " + "\nCantidad Depositada: " + cantidad + "$", "Deposito relizado", 1);
         u.setSaldo(u.getSaldo() + cantidad);
-        
+
     }
 
     /*
@@ -58,18 +58,29 @@ public class Banco {
         int cantidad = 0;
         double saldoDisponible = u.getSaldo();
         try {
+
             cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad que desea retirar", "Retiro", 1));
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Introdusca valores númericos por favor", "Error de caracteres", 0);
         }
-        
-        if (cantidad > 0 && cantidad <= saldoDisponible) {
-            
-            JOptionPane.showMessageDialog(null, "Retiro realizado con exito", "Retiro realizado", 1);
-            u.setSaldo(saldoDisponible - (cantidad));
-        } else {
-            JOptionPane.showMessageDialog(null, (cantidad < 0) ? "Introdusca una cantidad mayor a cero" : "Saldo insuficiente\nUsted no cuenta con suficiente saldo", "Error", 2);
-        }
+        boolean correcto = false;
+        do {
+            if (cantidad > 0 && cantidad <= saldoDisponible) {
+                correcto = true;
+                JOptionPane.showMessageDialog(null, "Retiro realizado con exito", "Retiro realizado", 1);
+                u.setSaldo(saldoDisponible - (cantidad));
+            } else {
+                JOptionPane.showMessageDialog(null, (cantidad < 0) ? "Introdusca una cantidad mayor a cero" : "Saldo insuficiente\nUsted no cuenta con suficiente saldo", "Error", 2);
+                try {
+
+                    cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad que desea retirar", "Retiro", 1));
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Introdusca valores númericos por favor", "Error de caracteres", 0);
+                }
+
+            }
+        } while (!correcto);
+
     }
 
     /*
@@ -80,17 +91,16 @@ public class Banco {
         double saldo = salida.getSaldo();
         try {
             cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad que desea tranferir a la cuenta de " + entrada.getNombre(), "Realizando Transferencia", 1));
-            
+
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Error de valores", "Error", 0);
         }
         if (cantidad <= saldo && cantidad > 0) {
             JOptionPane.showMessageDialog(null, "Transferencia realizada con exito a " + entrada.getNombre(), "Transferencia realizada", 1);
-            salida.setSaldo(saldo-(cantidad));
+            salida.setSaldo(saldo - (cantidad));
             entrada.setSaldo(entrada.getSaldo() + cantidad);
-        }
-        else{
-        JOptionPane.showMessageDialog(null,((cantidad>saldo)?"Saldo Insuficiente para realizar la transferencia":"Introduce valores mayores a cero"), "Transferencia No realizada", 0);
+        } else {
+            JOptionPane.showMessageDialog(null, ((cantidad > saldo) ? "Saldo Insuficiente para realizar la transferencia" : "Introduce valores mayores a cero"), "Transferencia No realizada", 0);
         }
     }
 }

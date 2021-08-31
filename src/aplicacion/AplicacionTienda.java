@@ -24,7 +24,7 @@ import usuariotienda.Usuario;
 public class AplicacionTienda {
 
     public static void main(String[] args) {
-        int op = 0, op2 = 0, op3 = 0;
+        int op = 0, op2 = 0, op3 = 0, op4 = 0;
         ControlTienda control = new ControlTienda();
         Banco banco = new Banco();
         AlmacenTienda almacen = new AlmacenTienda();
@@ -39,14 +39,14 @@ public class AplicacionTienda {
                         + "1.-Iniciar Sesión\n"
                         + "2.-Solicitar Mi Tarjeta Coppel\n"
                         + "3.-Ver Productos\n"
-                        + "4.-Salir\n", "Coppel", 3));
+                        + "4.-Salir\n", "Coppel", -1));
                 switch (op) {
                     case 1: {
                         if (!control.listaVacia()) {
                             nip = JOptionPane.showInputDialog(null, "Introdusca su NIP", "Iniciando Sesión", 1);
                             if (control.iniciarSesion(nip) != null) {
                                 usuario = control.iniciarSesion(nip);
-                                JOptionPane.showMessageDialog(null, "BIENVENIDO " + usuario.getNombre().toUpperCase(), "BIENVENIDA", -1);
+                                JOptionPane.showMessageDialog(null, "BIENVENIDO " + usuario.getNombre().toUpperCase(), "BIENVENIDA", -1, new ImageIcon("recursos/tarjeta.png"));
                                 do {
                                     try {
                                         op2 = Integer.parseInt(JOptionPane.showInputDialog(null, "MI CUENTA\n"
@@ -61,8 +61,8 @@ public class AplicacionTienda {
                                                                 + "1.-Mi cuenta Coppel\n"
                                                                 + "2.-Realizar Deposito\n"
                                                                 + "3.-Realizar Retiro\n"
-                                                                + "4.-Realizar Transferencia"
-                                                                + "", "BANCO", 3));
+                                                                + "4.-Realizar Transferencia\n"
+                                                                + "5.-Salir al menu principal", "BANCO", -1));
                                                         switch (op3) {
                                                             case 1: {
                                                                 JOptionPane.showMessageDialog(null, usuario, "Mis datos", 1);
@@ -77,15 +77,22 @@ public class AplicacionTienda {
                                                                 break;
                                                             }
                                                             case 4: {
-                                                                String numCuenta=JOptionPane.showInputDialog(null, "Introduce el numero de cuenta de la persona", "Introduciendo Numero de Cuenta", 1);
-                                                                Usuario cuenta=control.obtenerUsuario(usuario, numCuenta);
-                                                                if(cuenta!=null){
-                                                                banco.realizarTransferencia(usuario, cuenta);
+                                                                String numCuenta = JOptionPane.showInputDialog(null, "Introduce el numero de cuenta de la persona", "Introduciendo Numero de Cuenta", 1);
+                                                                Usuario cuenta = control.obtenerUsuario(usuario, numCuenta);
+                                                                if (cuenta != null) {
+                                                                    banco.realizarTransferencia(usuario, cuenta);
                                                                 }
-                                                               
+
                                                                 break;
                                                             }
-
+                                                            case 5: {
+                                                                JOptionPane.showMessageDialog(null, "Saliendo al menu principal", "Saliendo", 1, null);
+                                                                break;
+                                                            }
+                                                            default: {
+                                                                JOptionPane.showMessageDialog(null, "Introduce una opción valida", "Error de Opción", 2);
+                                                                break;
+                                                            }
                                                         }
                                                     } catch (NumberFormatException e) {
                                                         JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
@@ -127,10 +134,23 @@ public class AplicacionTienda {
                         break;
                     }
                     case 3: {
+                        do {
+                            op4=Integer.parseInt(JOptionPane.showInputDialog(null,"TIENDA\n"
+                                    + "1.-Área de Prendas\n"
+                                    + "2.-Área de Electrodomesticos\n"
+                                    + "3.-Área Electronica\n"
+                                    + "Elija una área por favor","Secciones Coppel", op));
 
+                            try {
+
+                            } catch (NumberFormatException e) {
+                                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);
+                            }
+                        } while (op4 != 4);
                         break;
                     }
                     case 4: {
+                        JOptionPane.showMessageDialog(null, "VUELVA PRONTO", "Cerrando Programa", -1, new ImageIcon("recursos/tienda.jpg"));
 
                         break;
                     }
